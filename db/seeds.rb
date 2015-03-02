@@ -5,24 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-User.destroy_all
-User.create(email: "a@a.com", password: "12341234", password_confirmation: "12341234")
-10.times do
-  User.create(email: Faker::Internet.safe_email, password: "12341234", password_confirmation: "12341234")
-end
-puts "#{ User.count } users in the database"
-
-
-Item.destroy_all
-30.times do
-  Item.create(desc: Faker::Company.bs)
-end
-puts "#{ Item.count } items in the database"
-
-
-
-# NORMAL: type in user email in form -> gets saved into email column in database
-# PASSWORD FLOW IN DEVISE: type in password in the form
-                              # -> devise processes the password and password confirmation into an encrypted hash
-                              # -> devise saves the encyrpted hash into the "encrypted_password" column
